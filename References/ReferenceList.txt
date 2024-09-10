@@ -1,0 +1,11 @@
+References:
+
+1. Chand, S. and Black, J., 2020. Database Management Systems. 3rd ed. Oxford: Oxford University Press.
+2. Elmasri, R. and Navathe, S.B., 2016. Fundamentals of Database Systems. 7th ed. Boston: Pearson.
+3. Silberschatz, A., Korth, H.F. and Sudarshan, S., 2019. Database System Concepts. 7th ed. New York: McGraw-Hill.
+4. Date, C.J., 2021. An Introduction to Database Systems. 8th ed. Reading: Addison-Wesley.
+5. Connolly, T. and Begg, C., 2015. Database Systems: A Practical Approach to Design, Implementation, and Management. 6th ed. Boston: Pearson.
+6. Murach, J., 2019. Murach's C# 2015. Fresno: Mike Murach & Associates.
+7. Rowe, R., 2018. Microsoft Visual Studio 2017: An Introduction for Beginners. Boston: Pearson.
+8. Traversy Media, 2019. ASP.NET Core MVC Crash Course. [video online] Available at: <https://www.youtube.com/watch?v=fmvcAzHpsk8> [Accessed 10 September 2024].
+9. Kudvenkat, 2020. ASP.NET Core Tutorial for Beginners. [video online] Available at: <https://www.youtube.com/playlist?list=PL6n9fhu94yhWKHkcL7RJmmXyxkuFB3KSl> [Accessed 10 September 2024].
