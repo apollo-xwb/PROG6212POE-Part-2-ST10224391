@@ -1,0 +1,21 @@
+﻿@model IEnumerable<CMCS.Models.Lecturer>
+
+<h2>Lecturers</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Lecturer ID</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var lecturer in Model)
+        {
+            <tr>
+                <td>@lecturer.LecturerID</td>
+                <td>@lecturer.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>

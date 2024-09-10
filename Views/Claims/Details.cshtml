@@ -1,0 +1,24 @@
+﻿@model CMCS.Models.Claim
+
+<h2>Claim Details</h2>
+
+<div>
+    <h3>Supporting Documents</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Document ID</th>
+                <th>Document Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var document in Model.SupportingDocuments)
+            {
+                <tr>
+                    <td>@document.SupportingDocumentID</td>
+                    <td>@document.DocumentName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

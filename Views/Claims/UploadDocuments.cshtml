@@ -1,0 +1,16 @@
+﻿@model CMCS.Models.Claim
+
+@{
+    ViewData["Title"] = "Upload Documents";
+}
+
+<h2>Upload Supporting Documents</h2>
+
+<form asp-action="UploadDocuments" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="ClaimID" value="@Model.ClaimID" />
+    <div class="form-group">
+        <label for="Document">Supporting Document</label>
+        <input type="file" name="SupportingDocument" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+</form>

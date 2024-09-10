@@ -1,0 +1,42 @@
+﻿@model IEnumerable<CMCS.Models.Claim>
+
+@{
+    ViewData["Title"] = "Claims";
+}
+
+<h2>Claims</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Claim ID</th>
+            <th>Lecturer ID</th>
+            <th>Claim Date</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model)
+        {
+            <tr>
+                <td>@claim.ClaimID</td>
+                <td>@claim.LecturerID</td>
+                <td>@claim.ClaimDate.ToShortDateString()</td>
+                <td>@claim.ClaimAmount</td>
+                <td>@claim.Status</td>
+                <td>@claim.Description</td>
+                <td>
+                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@claim.ClaimID">View</a>
+                    @if (User.IsInRole("Programme Coordinator") || User.IsInRole("Academic Manager"))
+                    {
+                        <a class="btn btn-success" asp-action="Approve" asp-route-id="@claim.ClaimID">Approve</a>
+                        <a class="btn btn-danger" asp-action="Reject" asp-route-id="@claim.ClaimID">Reject</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

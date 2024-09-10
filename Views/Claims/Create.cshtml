@@ -1,0 +1,33 @@
+﻿@model CMCS.Models.Claim
+
+<h2>Create Claim</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="LecturerID"></label>
+        <input asp-for="LecturerID" class="form-control" />
+        <span asp-validation-for="LecturerID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ClaimDate"></label>
+        <input asp-for="ClaimDate" type="date" class="form-control" />
+        <span asp-validation-for="ClaimDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ClaimAmount"></label>
+        <input asp-for="ClaimAmount" type="number" step="0.01" class="form-control" />
+        <span asp-validation-for="ClaimAmount" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Status"></label>
+        <input asp-for="Status" class="form-control" />
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+<a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>
