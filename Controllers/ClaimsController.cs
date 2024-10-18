@@ -37,7 +37,7 @@ namespace CMCS.Controllers
             {
                 if (claim.Document != null)
                 {
-                    // Handle file upload
+                    // Handle the file uploading
                     var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/documents", claim.Document.FileName);
                     using (var stream = new FileStream(filePath, FileMode.Create))
                     {

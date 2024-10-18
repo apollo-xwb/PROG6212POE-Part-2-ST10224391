@@ -8,7 +8,6 @@ namespace CMCS.Models
             : base(options)
         {
         }
-
         public DbSet<Lecturer> Lecturers { get; set; }
         public DbSet<Claim> Claims { get; set; }
         public DbSet<SupportingDocument> SupportingDocuments { get; set; }
