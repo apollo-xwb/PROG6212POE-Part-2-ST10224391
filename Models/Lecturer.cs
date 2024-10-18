@@ -6,6 +6,6 @@ namespace CMCS.Models
     {
         public int LecturerID { get; set; }
         public string Name { get; set; }
-        public ICollection<Claim> Claims { get; set; }
+        public ICollection<Claim> Claims { get; set; } //not being used
     }
 }
