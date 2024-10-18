@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using CMCS.Models;
-using System.Linq;
 
 namespace CMCS.Controllers
 {
@@ -13,7 +12,6 @@ namespace CMCS.Controllers
             _context = context;
         }
 
-        // GET: Lecturers
         public IActionResult Index()
         {
             var lecturers = _context.Lecturers.ToList();

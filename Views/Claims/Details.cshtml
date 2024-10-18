@@ -3,22 +3,58 @@
 <h2>Claim Details</h2>
 
 <div>
-    <h3>Supporting Documents</h3>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Document ID</th>
-                <th>Document Name</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var document in Model.SupportingDocuments)
-            {
-                <tr>
-                    <td>@document.SupportingDocumentID</td>
-                    <td>@document.DocumentName</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    <h4>Claim</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Claim Date
+        </dt>
+        <dd class="col-sm-10">
+            @Model.ClaimDate
+        </dd>
+        <dt class="col-sm-2">
+            Claim Amount
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Amount
+        </dd>
+        <dt class="col-sm-2">
+            Status
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Status
+        </dd>
+        <dt class="col-sm-2">
+            Description
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Description
+        </dd>
+    </dl>
+
+    <h4>Supporting Documents</h4>
+    <ul>
+        @foreach (var doc in Model.SupportingDocuments)
+        {
+            <li><a href="@doc.DocumentPath">@doc.DocumentName</a></li>
+        }
+    </ul>
+
+    <h4>Approval Status</h4>
+    <ul>
+        @foreach (var approval in Model.Approvals)
+        {
+            <li>@approval.ApproverName: @approval.ApprovalStatus - @approval.Comments</li>
+        }
+    </ul>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ClaimID" class="btn btn-primary">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    @if (User.IsInRole("ProgrammeCoordinator") || User.IsInRole("AcademicManager"))
+    {
+        <a asp-action="Approve" asp-route-id="@Model.ClaimID" class="btn btn-success">Approve</a>
+        <a asp-action="Reject" asp-route-id="@Model.ClaimID" class="btn btn-danger">Reject</a>
+    }
 </div>

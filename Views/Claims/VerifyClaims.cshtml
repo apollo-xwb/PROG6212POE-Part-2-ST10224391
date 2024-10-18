@@ -1,0 +1,23 @@
+﻿@model IEnumerable<CMCS.Models.Claim>
+
+<h2>Verify Claims</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Claim ID</th>
+            <th>Description</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model)
+        {
+            <tr>
+                <td>@claim.ClaimID</td> <!-- testing -->
+                <td>@claim.Description</td>
+                <td>@claim.Amount</td>
+            </tr>
+        }
+    </tbody>
+</table>

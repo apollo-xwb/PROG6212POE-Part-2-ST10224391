@@ -1,0 +1,23 @@
+﻿@model ClaimSubmissionResultViewModel
+
+@{
+    ViewData["Title"] = "Claim Submitted";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (Model.IsSuccess)
+{
+    <div class="alert alert-success">
+        <strong>Success!</strong> Your claim has been submitted successfully.
+    </div>
+    <p>Claim ID: @Model.ClaimId</p>
+    <p>Description: @Model.Description</p>
+    <p>Amount: @Model.Amount</p>
+}
+else
+{
+    <div class="alert alert-danger">
+        <strong>Error!</strong> There was a problem submitting your claim. Please try again.
+    </div>
+}

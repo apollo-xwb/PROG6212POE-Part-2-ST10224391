@@ -4,7 +4,12 @@
     ViewData["Title"] = "Claims";
 }
 
-<h2>Current Claims</h2>
+<h2>
+    Current Claims
+    <button class="btn btn-success" style="margin-left: 20px;">Approve</button>
+    <button class="btn btn-danger">Reject</button>
+    <span style="margin-left: 10px;">(Select a claim and then click Approve or Reject)</span>
+</h2>
 
 <table class="table">
     <thead>
@@ -25,18 +30,22 @@
                 <td>@claim.ClaimID</td>
                 <td>@claim.LecturerID</td>
                 <td>@claim.ClaimDate.ToShortDateString()</td>
-                <td>@claim.ClaimAmount</td>
+                <td>@claim.Amount</td>
                 <td>@claim.Status</td>
                 <td>@claim.Description</td>
                 <td>
                     <a class="btn btn-primary" asp-action="Details" asp-route-id="@claim.ClaimID">View</a>
-                    @if (User.IsInRole("Programme Coordinator") || User.IsInRole("Academic Manager"))
-                    {
-                        <a class="btn btn-success" asp-action="Approve" asp-route-id="@claim.ClaimID">Approve</a>
-                        <a class="btn btn-danger" asp-action="Reject" asp-route-id="@claim.ClaimID">Reject</a>
-                    }
+                    <button class="btn btn-success">Approve</button>
+                    <button class="btn btn-danger">Reject</button>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+<div style="text-align: right; margin-top: 20px;">
+    <h2>Claim Status Tracking</h2>
+    <button class="btn btn-warning" style="margin-right: 10px;">Pending</button>
+    <button class="btn btn-success" style="margin-right: 10px;">Approved</button>
+    <button class="btn btn-danger">Denied</button>
+</div>

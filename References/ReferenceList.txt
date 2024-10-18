@@ -1,11 +1,18 @@
 References:
 
-1. Chand, S. and Black, J., 2020. Database Management Systems. 3rd ed. Oxford: Oxford University Press.
-2. Elmasri, R. and Navathe, S.B., 2016. Fundamentals of Database Systems. 7th ed. Boston: Pearson.
-3. Silberschatz, A., Korth, H.F. and Sudarshan, S., 2019. Database System Concepts. 7th ed. New York: McGraw-Hill.
-4. Date, C.J., 2021. An Introduction to Database Systems. 8th ed. Reading: Addison-Wesley.
-5. Connolly, T. and Begg, C., 2015. Database Systems: A Practical Approach to Design, Implementation, and Management. 6th ed. Boston: Pearson.
-6. Murach, J., 2019. Murach's C# 2015. Fresno: Mike Murach & Associates.
-7. Rowe, R., 2018. Microsoft Visual Studio 2017: An Introduction for Beginners. Boston: Pearson.
-8. Traversy Media, 2019. ASP.NET Core MVC Crash Course. [video online] Available at: <https://www.youtube.com/watch?v=fmvcAzHpsk8> [Accessed 10 September 2024].
-9. Kudvenkat, 2020. ASP.NET Core Tutorial for Beginners. [video online] Available at: <https://www.youtube.com/playlist?list=PL6n9fhu94yhWKHkcL7RJmmXyxkuFB3KSl> [Accessed 10 September 2024].
+Chand, S. and Black, J., 2020. Database Management Systems. 3rd ed. Oxford: Oxford University Press.
+Elmasri, R. and Navathe, S.B., 2016. Fundamentals of Database Systems. 7th ed. Boston: Pearson.
+Silberschatz, A., Korth, H.F. and Sudarshan, S., 2019. Database System Concepts. 7th ed. New York: McGraw-Hill.
+Date, C.J., 2021. An Introduction to Database Systems. 8th ed. Reading: Addison-Wesley.
+Connolly, T. and Begg, C., 2015. Database Systems: A Practical Approach to Design, Implementation, and Management. 6th ed. Boston: Pearson.
+Murach, J., 2019. Murach's C# 2015. Fresno: Mike Murach & Associates.
+Rowe, R., 2018. Microsoft Visual Studio 2017: An Introduction for Beginners. Boston: Pearson.
+Traversy Media, 2019. ASP.NET Core MVC Crash Course. [video online] Available at: https://www.youtube.com/watch?v=fmvcAzHpsk8 [Accessed 10 September 2024].
+Kudvenkat, 2020. ASP.NET Core Tutorial for Beginners. [video online] Available at: https://www.youtube.com/playlist?list=PL6n9fhu94yhWKHkcL7RJmmXyxkuFB3KSl [Accessed 10 September 2024].
+Ullman, J.D. and Widom, J., 2020. A First Course in Database Systems. 4th ed. Upper Saddle River: Pearson.
+Ramakrishnan, R. and Gehrke, J., 2020. Database Management Systems. 3rd ed. New York: McGraw-Hill.
+Molina, H.G., Ullman, J.D. and Widom, J., 2008. Database Systems: The Complete Book. 2nd ed. Upper Saddle River: Pearson.
+Garcia-Molina, H., Ullman, J.D. and Widom, J., 2002. Database Systems: The Complete Book. 1st ed. Upper Saddle River: Pearson.
+Stanford University, 2014. Database Systems: Design, Implementation, and Management. [video online] Available at: https://www.youtube.com/watch?v=HXV3zeQKqGY [Accessed 10 September 2024].
+Redgate, 2021. SQL Server Integration Services (SSIS) Tutorial for Beginners. [video online] Available at: https://www.youtube.com/watch?v=J6GgoO0UZUM [Accessed 10 September 2024].
+OpenAI, 2024. GPT-4 Technical Report. [online] Available at: https://www.openai.com/research/gpt-4 [Accessed 10 September 2024].

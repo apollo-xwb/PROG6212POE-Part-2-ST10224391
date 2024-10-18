@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Adds the services to container.
+// Adding the the services to container.
 builder.Services.AddControllersWithViews();
 
-// DbContext using InMemoryDatabase for development purposes
+// DbContext using IMD for development purposes
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseInMemoryDatabase("TestDb"));
 
