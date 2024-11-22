@@ -85,18 +85,18 @@
             var hourlyRate = document.getElementById("CalcHourlyRate").value;
             var amountField = document.getElementById("CalcAmount");
 
-            // Ensure hoursWorked and hourlyRate are numbers
+            // Makes sure tthe hoursWorked and hourlyRate are numbers
             var hoursWorkedNum = parseFloat(hoursWorked);
             var hourlyRateNum = parseFloat(hourlyRate);
 
             if (!isNaN(hoursWorkedNum) && !isNaN(hourlyRateNum)) {
                 var totalAmount = hoursWorkedNum * hourlyRateNum;
                 amountField.value = totalAmount.toFixed(2);
-                // Update the main form Amount field
+                // Updates the main form Amount field (Removed)
                 document.getElementById("Amount").value = totalAmount.toFixed(2);
             } else {
                 amountField.value = '';
-                // Clear the main form Amount field
+                // Clears the main forms Amount field (Deleted)
                 document.getElementById("Amount").value = '';
             }
         }
