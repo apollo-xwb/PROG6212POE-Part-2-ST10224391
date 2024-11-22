@@ -1,0 +1,73 @@
+﻿@page
+@model cmcs.Views.Claims.HRModel
+@{
+}
+
+<h1 class="text-center mt-5">HR Management</h1>
+
+<div class="container mt-4">
+    <div class="row">
+        <!-- Claims Automation -->
+        <div class="col-md-6">
+            <div class="card shadow-sm p-4 mb-4">
+                <h4 class="text-center mb-4">Claims Automation</h4>
+                <form method="post">
+                    <div class="form-group mb-3">
+                        <label for="GenerateReport" class="form-label">Generate Report for Approved Claims</label>
+                        <button type="submit" class="btn btn-primary btn-block">Generate Report</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Lecturer Data Management -->
+        <div class="col-md-6">
+            <div class="card shadow-sm p-4 mb-4">
+                <h4 class="text-center mb-4">Lecturer Data Management</h4>
+                <form method="post">
+                    <div class="form-group mb-3">
+                        <label for="LecturerID" class="form-label">Lecturer ID</label>
+                        <input type="text" id="LecturerID" name="LecturerID" class="form-control" />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="PersonalInfo" class="form-label">Update Personal Information</label>
+                        <textarea id="PersonalInfo" name="PersonalInfo" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="ContactDetails" class="form-label">Update Contact Details</label>
+                        <textarea id="ContactDetails" name="ContactDetails" class="form-control"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-block">Update Lecturer Data</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Soon
+    </script>
+}
+
+@section Styles {
+    <style>
+        .form-label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            margin-top: 20px;
+        }
+
+        .card {
+            margin-bottom: 20px;
+        }
+    </style>
+}
