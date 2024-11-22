@@ -1,39 +1,124 @@
 ﻿@model CMCS.Models.Claim
 
 @{
-    ViewData["Title"] = "Submit a Claim";
+    ViewData["Title"] = "Create Claim";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Submit a Claim To The CMCS</h1>
+<h1 class="text-center mt-5">Create Claim</h1>
+
+<div class="container mt-4">
+    <div class="row">
+        <!-- Main Claim Form -->
+        <div class="col-md-8">
+            <div class="card shadow-sm p-4">
+                <h4 class="text-center mb-4">Claim Details</h4>
+                <form asp-action="Create" enctype="multipart/form-data">
+                    <div class="form-group mb-3">
+                        <label asp-for="LecturerID" class="form-label"></label>
+                        <input asp-for="LecturerID" class="form-control" />
+                        <span asp-validation-for="LecturerID" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="ClaimDate" class="form-label"></label>
+                        <input asp-for="ClaimDate" class="form-control" />
+                        <span asp-validation-for="ClaimDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Status" class="form-label"></label>
+                        <input asp-for="Status" class="form-control" />
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Description" class="form-label"></label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="AdditionalNotes" class="form-label"></label>
+                        <textarea asp-for="AdditionalNotes" class="form-control"></textarea>
+                        <span asp-validation-for="AdditionalNotes" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Document" class="form-label"></label>
+                        <input asp-for="Document" type="file" class="form-control" />
+                        <span asp-validation-for="Document" class="text-danger"></span>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-lg">Create Claim</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Calculator Tool -->
+        <div class="col-md-4">
+            <div class="card shadow-sm p-4">
+                <h4 class="text-center mb-4">Payment Calculator</h4>
+                <form>
+                    <div class="form-group mb-3">
+                        <label for="CalcHoursWorked" class="form-label">Hours Worked</label>
+                        <input type="number" id="CalcHoursWorked" class="form-control" oninput="calculateAmount()" />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="CalcHourlyRate" class="form-label">Hourly Rate</label>
+                        <input type="number" id="CalcHourlyRate" class="form-control" oninput="calculateAmount()" />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="CalcAmount" class="form-label">Total Amount</label>
+                        <input type="text" id="CalcAmount" class="form-control" readonly />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="container mt-5">
-    <form asp-action="CreateClaim" method="post" enctype="multipart/form-data">
-        <div class="form-group">
-            <label asp-for="ClaimDate" class="control-label"></label>
-            <input asp-for="ClaimDate" class="form-control" />
-            <span asp-validation-for="ClaimDate" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="Amount" class="control-label"></label>
-            <input asp-for="Amount" class="form-control" />
-            <span asp-validation-for="Amount" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="Status" class="control-label"></label>
-            <input asp-for="Status" class="form-control" />
-            <span asp-validation-for="Status" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="Description" class="control-label"></label>
-            <textarea asp-for="Description" class="form-control"></textarea>
-            <span asp-validation-for="Description" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label for="SupportingDocuments">Upload Any Neccesary Supporting Documents</label>
-            <input type="file" name="supportingDocuments" multiple class="form-control" />
-        </div>
-        <button type="submit" class="btn btn-primary">Submit Claim</button>
-    </form>
+<div class="text-center mt-4">
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
 </div>
+
+@section Scripts {
+    <script>
+        function calculateAmount() {
+            var hoursWorked = document.getElementById("CalcHoursWorked").value;
+            var hourlyRate = document.getElementById("CalcHourlyRate").value;
+            var amountField = document.getElementById("CalcAmount");
+
+            // Makes sure tthe hoursWorked and hourlyRate are numbers
+            var hoursWorkedNum = parseFloat(hoursWorked);
+            var hourlyRateNum = parseFloat(hourlyRate);
+
+            if (!isNaN(hoursWorkedNum) && !isNaN(hourlyRateNum)) {
+                var totalAmount = hoursWorkedNum * hourlyRateNum;
+                amountField.value = totalAmount.toFixed(2);
+                // Updates the main form Amount field (Removed)
+                document.getElementById("Amount").value = totalAmount.toFixed(2);
+            } else {
+                amountField.value = '';
+                // Clears the main forms Amount field (Deleted)
+                document.getElementById("Amount").value = '';
+            }
+        }
+    </script>
+}
+
+@section Styles {
+    <style>
+        .form-label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            margin-top: 20px;
+        }
+
+        .card {
+            margin-bottom: 20px;
+        }
+    </style>
+}
