@@ -6,14 +6,15 @@
 
 <h2>
     Current Claims
-    <button class="btn btn-success" style="margin-left: 20px;">Approve</button>
-    <button class="btn btn-danger">Reject</button>
+    <button class="btn btn-success" style="margin-left: 20px;" onclick="approveSelected()">Approve</button>
+    <button class="btn btn-danger" onclick="rejectSelected()">Reject</button>
     <span style="margin-left: 10px;">(Select a claim and then click Approve or Reject)</span>
 </h2>
 
 <table class="table">
     <thead>
         <tr>
+            <th><input type="checkbox" id="selectAll" onclick="toggleSelectAll()" /></th>
             <th>Claim ID</th>
             <th>Lecturer ID</th>
             <th>Claim Date</th>
@@ -27,6 +28,7 @@
         @foreach (var claim in Model)
         {
             <tr>
+                <td><input type="checkbox" class="claim-checkbox" value="@claim.ClaimID" /></td>
                 <td>@claim.ClaimID</td>
                 <td>@claim.LecturerID</td>
                 <td>@claim.ClaimDate.ToShortDateString()</td>
@@ -35,8 +37,8 @@
                 <td>@claim.Description</td>
                 <td>
                     <a class="btn btn-primary" asp-action="Details" asp-route-id="@claim.ClaimID">View</a>
-                    <button class="btn btn-success">Approve</button>
-                    <button class="btn btn-danger">Reject</button>
+                    <button class="btn btn-success" onclick="approveClaim(@claim.ClaimID)">Approve</button>
+                    <button class="btn btn-danger" onclick="rejectClaim(@claim.ClaimID)">Reject</button>
                 </td>
             </tr>
         }
@@ -49,3 +51,116 @@
     <button class="btn btn-success" style="margin-right: 10px;">Approved</button>
     <button class="btn btn-danger">Denied</button>
 </div>
+
+@section Scripts {
+    <script>
+        // Toggle all checkboxes
+        function toggleSelectAll() {
+            var checkboxes = document.querySelectorAll('.claim-checkbox');
+            var isChecked = document.getElementById('selectAll').checked;
+            checkboxes.forEach(function (checkbox) {
+                checkbox.checked = isChecked;
+            });
+        }
+
+        // Approve selected claims
+        function approveSelected() {
+            var selectedClaims = getSelectedClaims();
+            if (selectedClaims.length === 0) {
+                alert('No claims selected!');
+                return;
+            }
+
+            // Send selected claims for approval
+            fetch('/HR/ApproveClaims', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ claimIds: selectedClaims })
+            }).then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Claims approved successfully.');
+                        location.reload();
+                    } else {
+                        alert('Error approving claims.');
+                    }
+                });
+        }
+
+        // Reject selected claims
+        function rejectSelected() {
+            var selectedClaims = getSelectedClaims();
+            if (selectedClaims.length === 0) {
+                alert('No claims selected!');
+                return;
+            }
+
+            // Send selected claims for rejection
+            fetch('/HR/RejectClaims', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ claimIds: selectedClaims })
+            }).then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Claims rejected successfully.');
+                        location.reload();
+                    } else {
+                        alert('Error rejecting claims.');
+                    }
+                });
+        }
+
+        // Gets the selected claims from the checkboxes
+        function getSelectedClaims() {
+            var selectedClaims = [];
+            var checkboxes = document.querySelectorAll('.claim-checkbox:checked');
+            checkboxes.forEach(function (checkbox) {
+                selectedClaims.push(checkbox.value);
+            });
+            return selectedClaims;
+        }
+
+        // Approve an individual claim
+        function approveClaim(claimId) {
+            fetch('/HR/ApproveClaim', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ claimId: claimId })
+            }).then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Claim approved successfully.');
+                        location.reload();
+                    } else {
+                        alert('Error approving claim.');
+                    }
+                });
+        }
+
+        // Reject an individual claim
+        function rejectClaim(claimId) {
+            fetch('/HR/RejectClaim', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ claimId: claimId })
+            }).then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Claim rejected successfully.');
+                        location.reload();
+                    } else {
+                        alert('Error rejecting claim.');
+                    }
+                });
+        }
+    </script>
+}
